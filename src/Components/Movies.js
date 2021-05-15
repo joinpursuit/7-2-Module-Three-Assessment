@@ -29,17 +29,17 @@ const Movies = () => {
 	// get the option selected ... base for movie details
 	const selectMovie = async (e) => {
 		setSelectedMovieURL(e.target.value);
-		try {
-			const res = await axios.get(e.target.value);
-			setSelectedMovie(res.data);
-		} catch (err) {
-			setSelectedMovie({});
+		if (e.target.value) {
+			try {
+				const res = await axios.get(e.target.value);
+				setSelectedMovie(res.data);
+			} catch (err) {
+				setSelectedMovie({});
+			}
 		}
 	};
 
-	{
-		/* print nothing if selected is blank */
-	}
+	// print nothing if selected is blank
 	if (hasSelected) {
 		if (selectedMovie.title) {
 			movieDetails = (
