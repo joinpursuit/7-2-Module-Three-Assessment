@@ -27,7 +27,7 @@ const Locations = () => {
 	};
 
 	return (
-		<section>
+		<section className="locations">
 			<h1>List of Locations</h1>
 			<button onClick={handleClick}>
 				{showLocations ? "Hide Locations" : "Show Locations"}
