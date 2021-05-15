@@ -1,0 +1,10 @@
+.NavBarContainer {
+    width:75%;
+    display:flex;
+    justify-content: space-around;
+    padding: 50px;
+}
+.NavBarContainer img {
+height: 50px;
+width: 50px;
+}
