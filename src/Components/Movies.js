@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [chosenMovie, setChosenMovie] = useState("");
-  const [displayDiv, setDisplayDiv] = useState(false);
+  
 
   const fetchMovies = async () => {
     try {
@@ -25,7 +25,6 @@ const Movies = () => {
     try {
       const res = await axios.get(e.target.value);
       setChosenMovie(res.data);
-      setDisplayDiv(true);
     } catch (error) {
       setChosenMovie("");
     }

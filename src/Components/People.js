@@ -10,7 +10,6 @@ const People = () => {
   const fetchPeople = async () => {
     try {
       const res = await axios.get(`https://ghibliapi.herokuapp.com/people`);
-      debugger
       setPeople(res.data);
     } catch (error) {
       setPeople([]);
