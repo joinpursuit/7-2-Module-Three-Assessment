@@ -2,12 +2,12 @@ import axios from "axios";
 import React from "react";
 
 class Movies extends React.Component {
-  state = { movies: [], moviePicked: "", movieDeets: {} };
+  state = { movies: [], moviePicked: "", movieDeets: [] };
 
   seeMovies = async () => {
     try {
       const res = await axios.get("https://ghibliapi.herokuapp.com/films");
-    //   debugger;
+      debugger;
       this.setState({ movies: res.data });
     } catch (error) {
       this.setState({ movies: [] });
@@ -19,6 +19,7 @@ class Movies extends React.Component {
   }
 
   pickAMovie = async (e) => {
+      debugger
       this.setState({ moviePicked: e.target.value })
       try {
           const res = await axios.get("https://ghibliapi.herokuapp.com/films")
@@ -39,15 +40,15 @@ class Movies extends React.Component {
               return <option>{movie.title}</option>
           })}
         </select>
-        {movieDeets.map((movieDeet) => {
+        {/* {movieDeets.map((movieDeet) => {
             return (
                 <div>
-        <h1>{movieDeets.title}</h1>
-        <p>{movieDeets.release_date}</p>
-        <p>{movieDeets.description}</p>
+        <h1>{movieDeet.title}</h1>
+        <p>{movieDeet.release_date}</p>
+        <p>{movieDeet.description}</p>
         </div>
             )
-        })}
+        })} */}
       </section>
     );
   }
