@@ -1,0 +1,23 @@
+.NavBarContainer {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(132, 243, 197);
+    height: 100px;
+    align-items: center;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0px 5px 5px grey;
+  }
+  
+  .NavBarContainer img {
+      height: 50px;
+      width: 50px;
+  }
+
+  .NavBarContainer a {
+    color: rgb(248, 78, 55);;
+   }
+   
+   .NavBarContainer a:link {
+       text-decoration: none;
+   }
