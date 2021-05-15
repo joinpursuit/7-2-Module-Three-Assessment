@@ -1,3 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+
 .app {
   text-align: center;
+  font-family: "Permanent Marker", cursive;
+  font-size: larger;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(236, 145, 201);
+  font-size: xx-large;
+}
+
+div {
+  background-color: rgb(235, 187, 232);
+  height: 2000px;
 }
