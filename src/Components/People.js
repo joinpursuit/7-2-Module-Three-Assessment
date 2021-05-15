@@ -28,9 +28,8 @@ const People = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let inputFixed = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase()
     people.forEach((person) => {
-        if (inputFixed === person.name) {  // comeback and fix lowercase issue when searching 
+        if (input === person.name) {  
             setPerson(person);
         }
     });
@@ -39,7 +38,7 @@ const People = () => {
 
   let result;
   if (hasSearched) {
-    if (person.name) {
+    if (input === person.name) {
       result = (
         <section>
           <p>Name: {person.name}</p>
