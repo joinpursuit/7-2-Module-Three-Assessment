@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "./people.css";
 
 const People = () => {
   const [input, setInput] = useState("");
@@ -49,7 +50,7 @@ const People = () => {
     }else { text = null; console.log(person.name)}
 
   return (
-    <section>
+    <section className="peopleSection">
       <h1>Search for a Person</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" value={input} onChange={handleChange} placeholder={"Find Your Person"} />

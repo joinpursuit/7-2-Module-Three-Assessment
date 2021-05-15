@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "./movies.css";
+
 
 const Movies = () => {
   const [movie, setMovie] = useState({});
@@ -30,7 +32,7 @@ const Movies = () => {
 
 
   return (
-    <section>
+    <section className="movieSection">
       <h1>Select a Movie</h1>
       <select defaultValue={''} onChange={selectMovie}>
       <option value=""></option>

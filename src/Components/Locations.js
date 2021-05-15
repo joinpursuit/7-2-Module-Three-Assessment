@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "./locations.css";
+
 
 const Locations = () => {
   const [locations, setLocations] = useState([]);
@@ -12,7 +14,6 @@ const Locations = () => {
   const fetchLocations = async () => {
     try {
       const {data} = await axios.get("https://ghibliapi.herokuapp.com/locations");
-      debugger
       setLocations(data);
     } catch (err) {
       setLocations([]);
@@ -23,7 +24,7 @@ const Locations = () => {
     setShowLocations((prevShowLocations) => !prevShowLocations);
 
   return (
-    <section>
+    <section className="locationSection">
       <h1>List of Locations</h1>
 
       <button onClick={handleClick}>
