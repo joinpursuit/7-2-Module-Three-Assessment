@@ -21,7 +21,7 @@ const Movies = () => {
 		}
 	};
 
-	// call the function for the API
+	// call the API function on cdm
 	useEffect(() => {
 		fetchMovies();
 	}, []);
