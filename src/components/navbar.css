@@ -1,0 +1,19 @@
+img {
+    height: 50px;
+    width: auto;
+}
+
+.navContainer {
+    background-color: #e4c1f9;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: solid #ff99c8 5px;
+}
+
+a {
+    color:#00bbf9;
+    font-weight: bolder;
+    text-decoration: none;
+    font-size: large;
+}
