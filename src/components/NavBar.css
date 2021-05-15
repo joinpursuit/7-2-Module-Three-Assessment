@@ -1,0 +1,15 @@
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    font-size: 30px;
+    background-color: rgb(241, 191, 150);
+    height: 80px;
+    padding-top: 30px;
+    box-shadow: 0px 5px 5px grey;
+}
+
+nav img {
+    height: 50px;
+    width: 50px;
+}
