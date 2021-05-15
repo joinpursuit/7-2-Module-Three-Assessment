@@ -35,7 +35,7 @@ const Locations = () => {
                     location.terrain = "Unknown"
                     location.climate = "Unknown"
                 }
-              return <li key={location.name}>Name: {location.name} <br/> Climate: {location.climate}  <br/> Terrain: {location.terrain}</li>;
+              return <li key={location.id}>Name: {location.name} <br/> Climate: {location.climate}  <br/> Terrain: {location.terrain}</li>;
             })}
           </ul>
         ): <ul></ul>}

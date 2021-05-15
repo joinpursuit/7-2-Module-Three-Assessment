@@ -1,50 +1,63 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const People = () => {
   const [input, setInput] = useState("");
-  const [person, setPerson] = useState({});
-  const [hasSearched, setHasSearched] = useState(false)
+  const [people, setPeople] = useState([]);
+  const [hasSearched, setHasSearched] = useState(false);
+  const [person, setPerson] = useState([]);
 
-  const fetchPerson = async () => {
+  const fetchPeople = async () => {
     try {
       const res = await axios.get(`https://ghibliapi.herokuapp.com/people`);
-    debugger
-    //   setPersonID(res.data.id);
+      debugger
+      setPeople(res.data);
     } catch (error) {
-      setPerson([]);
+      setPeople([]);
     }
   };
+
+
+  useEffect(() => {
+    fetchPeople();
+  }, [])
 
   const handleInput = (e) => {
     setInput(e.target.value);
   };
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchPerson();
+    people.forEach((person) => {
+        if (input === person.name) {  // comeback and fix lowercase issue when searching 
+            setPerson(person);
+        }
+    });
     setHasSearched(true);
   };
 
   let result;
-  if (person.name) {
-    person.map((person) => {
+  if (hasSearched) {
+    if (input === person.name) {
       result = (
-        <h1>
-          Name: {person.name} Age: {person.age} Gender: {person.gender} ID{" "}
-          {person.id}
-        </h1>
+        <section>
+          <p>Name: {person.name}</p>
+          <p> Age: {person.age}</p>
+          <p>Gender: {person.gender}</p>
+        </section>
       );
-    });
-  } else if (hasSearched) {
-    result = "Not Found";
-  }
+    } else {
+      result = <div> Not Found</div>;
+    }
+}
 
   return (
     <section>
       <h1>Search for a Person</h1>
       <form onSubmit={handleSubmit}>
         <input
+          type="text"
           onChange={handleInput}
           value={input}
           placeholder="Find Your Person"

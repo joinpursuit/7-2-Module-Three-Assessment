@@ -1,4 +1,3 @@
-import { getByDisplayValue } from "@testing-library/dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -34,9 +33,9 @@ const Movies = () => {
 
   return (
     <section>
-      <h1>Select a Movie</h1>
-      <select value={chosenMovie} onChange={handleChange}>
-        <option value="" selected></option>
+      <h1 value={chosenMovie.title}>Select a Movie</h1>
+      <select value={chosenMovie.title} onChange={handleChange}>
+        <option value={chosenMovie.title} selected></option>
         {movies.map((movieObj) => {
           return (
             <option key={movieObj.id} value={movieObj.url}>
@@ -45,15 +44,11 @@ const Movies = () => {
           );
         })}
       </select>
-      {displayDiv ? (
         <div>
           <h1> Title: {chosenMovie.title}</h1>
           <p> Release Date: {chosenMovie.release_date}</p>
           <p> Description: {chosenMovie.description}</p>
         </div>
-      ) : (
-        false
-      )}
     </section>
   );
 };
