@@ -56,7 +56,7 @@ const Movies = () => {
         })}
       </select>
 
-     {currentMovie && <h1>Title: {currentMovie}</h1>}
+      <h1> {currentMovie}</h1>
       {releaseDate && <p>Release Date: {releaseDate}</p>}
       {description && <p>Description: {description}</p>}
     </div>

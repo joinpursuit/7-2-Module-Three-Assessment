@@ -8,33 +8,34 @@ const People = () => {
   const [characterAge, setCharacterAge] = useState("");
   const [characterGender, setCharacterGender] = useState("");
   const [error, setError] = useState(false);
-  const [match, setMatch] = useState(false)
 
   const handleInputChange = (e) => {
     setUserInput(e.target.value);
   };
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+   const filteredPerson = people.filter(person => person.name === userInput)
+   
+  
+      
+       
+       if (filteredPerson.length !== 0){
+           debugger
+        setCharacterName(filteredPerson[0].name);
+        setCharacterAge(filteredPerson[0].age);
+        setCharacterGender(filteredPerson[0].gender);
+       } else {
+           setError(true)
+       }
+   
+    
+   
 
-    people.map((person) => {
-      if (userInput.toLowerCase() === person.name.toLowerCase()) {
-        debugger;
-        setError(false);
-        setCharacterName(person.name);
-        setCharacterAge(person.age);
-        setCharacterGender(person.gender);
-        setMatch(true)
-      }
-    });
-
-    if (match === false) {
-      debugger;
-      setError(true);
-      setCharacterName("");
-      setCharacterAge("");
-      setCharacterGender("");
-    }
+   
   };
 
   const fetchPeople = async () => {
@@ -66,10 +67,10 @@ const People = () => {
         <button type="submit">Submit</button>
       </form>
 
-      {characterName && <h2>Name: {characterName}</h2>}
+      <h2>Name: {characterName}</h2>
       {characterAge && <h2>Age: {characterAge}</h2>}
       {characterGender && <h2>Gender: {characterGender}</h2>}
-      {error === true && <h2>Not Found</h2>}
+      {!characterName && <h2>Not Found</h2>}
     </div>
   );
 };
