@@ -1,0 +1,21 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #48AEF0;
+}
+
+nav img {
+    height: 50px;
+    width: 50px;
+}
+
+nav a {
+    color: #E6E6FA;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+nav .active {
+    font-weight: bold;
+}
