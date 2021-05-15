@@ -2,12 +2,11 @@ import axios from "axios";
 import React from "react";
 
 class Movies extends React.Component {
-  state = { movies: [], moviePicked: "", movieDeets: [] };
+  state = { movies: [], moviePickedURL: "", moviePicked: {} };
 
   seeMovies = async () => {
     try {
       const res = await axios.get("https://ghibliapi.herokuapp.com/films");
-      debugger;
       this.setState({ movies: res.data });
     } catch (error) {
       this.setState({ movies: [] });
@@ -19,36 +18,36 @@ class Movies extends React.Component {
   }
 
   pickAMovie = async (e) => {
-      debugger
-      this.setState({ moviePicked: e.target.value })
-      try {
-          const res = await axios.get("https://ghibliapi.herokuapp.com/films")
-          this.setState({ movieDeets: res.data })
-      } catch (error) {
-          this.setState({ movieDeets: {} })
-      }
-  }
+    this.setState({ moviePickedURL: e.target.value });
+    try {
+      const res = await axios.get(e.target.value);
+      this.setState({ moviePicked: res.data });
+    } catch (error) {
+      this.setState({ moviePicked: {} });
+    }
+  };
 
   render() {
-      const { movies, moviePicked, movieDeets } = this.state
+    const { movies, moviePickedURL, moviePicked } = this.state;
+    console.log(this.state);
     return (
       <section>
         <h1>Select a Movie</h1>
-        <select value={moviePicked} onChange={this.pickAMovie}>
+        <select value={moviePickedURL} onChange={this.pickAMovie}>
           <option value="" defaultValue></option>
           {movies.map((movie) => {
-              return <option>{movie.title}</option>
+            return (
+              <option key={movie.title} value={movie.url}>
+                {movie.title}
+              </option>
+            );
           })}
         </select>
-        {/* {movieDeets.map((movieDeet) => {
-            return (
-                <div>
-        <h1>{movieDeet.title}</h1>
-        <p>{movieDeet.release_date}</p>
-        <p>{movieDeet.description}</p>
+        <div>
+          <h1>{moviePicked.title}</h1>
+          <p>{moviePicked.release_date}</p>
+          <p>{moviePicked.description}</p>
         </div>
-            )
-        })} */}
       </section>
     );
   }

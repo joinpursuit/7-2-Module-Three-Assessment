@@ -36,25 +36,20 @@ class Locations extends React.Component {
           <ul>
             {locations.map((location) => {
               return (
-                  <div>
-              <li key={location.name}>Name: {location.name}</li>
-              <li key={location.name}>Climate: {location.climate}</li>
-              <li key={location.name}>Terrain: {location.terrain}</li>
-              </div>
-              )
+                <div>
+                  <li key={location.name}>Name: {location.name}</li>
+                  <p>Climate: {location.climate}</p>
+                  <p>Terrain: {location.terrain}</p>
+                </div>
+              );
             })}
           </ul>
         ) : (
           <ul></ul>
         )}
-
-
-
-
-
       </div>
-    ); //return
-  } //render
-} //class comp
+    ); 
+  }
+}
 
 export default Locations;
