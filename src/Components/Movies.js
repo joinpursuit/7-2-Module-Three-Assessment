@@ -3,10 +3,32 @@ import { useState, useEffect } from "react";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
+  const [title, setTitle] = useState("");
+  const [release_date, setRelease_date] = useState("");
+  const [description, setDescription] = useState("");
+  //   const [ selectedMovie, setSelectedMovie ] = useState("");
+
+  const handleChange = async (e) => {
+    const id = e.target.value;
+    //   setSelectedMovie(id);
+    try {
+      const res = await axios.get(
+        `https://ghibliapi.herokuapp.com/films/${id}`
+      );
+      const movie = res.data;
+      setTitle(movie.title);
+      setRelease_date(movie.release_date);
+      setDescription(movie.description);
+    } catch (error) {
+      setTitle("");
+      setRelease_date("");
+      setDescription("");
+    }
+  };
 
   const fetchMovies = async () => {
     try {
-      const res = await axios.get("https://ghibliapi.herokuapp.com/films/");
+      const res = await axios.get("https://ghibliapi.herokuapp.com/films");
       setMovies(res.data);
     } catch (error) {
       console.log(error);
@@ -21,8 +43,8 @@ const Movies = () => {
   return (
     <section id="Movies">
       <h1>Select a Movie</h1>
-      <select>
-        <option value=""></option>
+      <select onChange={handleChange}>
+        <option value="null"></option>
         {movies.map((movie) => {
           return (
             <option value={movie.id} key={movie.id}>
@@ -32,6 +54,11 @@ const Movies = () => {
         })}
         <option />
       </select>
+      <section>
+        <h2>{title}</h2>
+        <h3>{release_date}</h3>
+        <p>{description}</p>
+      </section>
     </section>
   );
 };
