@@ -9,7 +9,6 @@ export default class People extends Component {
       const res = await axios.get("https://ghibliapi.herokuapp.com/people");
       const peopleData = res.data;
       this.setState({ people: peopleData });
-      //   debugger;
     } catch (err) {
       console.log(err);
     }
@@ -23,29 +22,19 @@ export default class People extends Component {
     const { people, input } = this.state;
     for (let i = 0; i < people.length; i++) {
       if (input.toLowerCase() === people[i].name.toLowerCase()) {
-        console.log(people[i].name);
-        console.log(people[i].age);
-        console.log(people[i].gender);
-        // this.setState({
-        //   name: people[i].name,
-        //   age: people[i].age,
-        //   gender: people[i].gender,
-        // });
-        // <div>
-        //     <p>{people[i].name}</p>
-        //     <p>{people[i].age}</p>
-        //     <p>{people[i].gender}</p>
-        // </div>;
+        this.setState({
+          name: people[i].name,
+          age: people[i].age,
+          gender: people[i].gender,
+        });
       } else console.log("Invalid Input");
     }
-    // debugger
   };
 
   handleSubmit = (e) => {
     const { people } = this.state;
     e.preventDefault();
     people.filter(this.nameChecker);
-    //   debugger;
     this.setState({ input: "" });
   };
 
@@ -54,7 +43,7 @@ export default class People extends Component {
   };
 
   render() {
-    const { input } = this.state;
+    const { input, name, age, gender } = this.state;
     return (
       <div>
         <h1>Search for a Person</h1>
@@ -67,6 +56,9 @@ export default class People extends Component {
           ></input>
           <button type="submit">Submit</button>
         </form>
+        <h4>Name: {name}</h4>
+        <h4>Age: {age}</h4>
+        <h4>Gender: {gender}</h4>
       </div>
     );
   }
