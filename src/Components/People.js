@@ -70,7 +70,7 @@ const People = () => {
       <h2>Name: {characterName}</h2>
       {characterAge && <h2>Age: {characterAge}</h2>}
       {characterGender && <h2>Gender: {characterGender}</h2>}
-      {!characterName && <h2>Not Found</h2>}
+      {error === true &&<h2>Not Found</h2>}
     </div>
   );
 };
