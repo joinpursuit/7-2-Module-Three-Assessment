@@ -1,16 +1,18 @@
 import axios from "axios";
 import React, { useState } from "react";
-                // `https://ghibliapi.herokuapp.com/people/${input}`
+
 const People =()=>{
     const [input,setInput] = useState('');
     const [people,setPeople] = useState({});
     const [hasSearch,setHasSearch] = useState(false);
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if(!input) {
+            return null;
+        }
         setHasSearch(true)
         let inputArr = input.toLocaleLowerCase().split(' ');
-        // console.log(inputArr)
         let newStr = inputArr.map(word => {
             const toCapital = ([firstLetter, ...restOfWord]) => {
                 return firstLetter.toUpperCase() + restOfWord.join('')
@@ -22,7 +24,7 @@ const People =()=>{
             const res = await axios.get(
                 `https://ghibliapi.herokuapp.com/people/?name=${newInput}`
             )
-            setPeople(res.data);
+            setPeople(res.data[0]);
         } catch(err) {
             setPeople({})
         }
@@ -33,13 +35,13 @@ const People =()=>{
     }
 
     let displayInfo;
-
+    
     if(hasSearch) {
-        if(people[0]?.name) {
+        if(people?.name) {
             displayInfo = (<div>
-                <p>Name: {people[0]?.name}</p>
-                <p>Age: {people[0]?.age}</p>
-                <p>Gender: {people[0]?.gender}</p>
+                <p>Name: {people?.name}</p>
+                <p>Age: {people?.age}</p>
+                <p>Gender: {people?.gender}</p>
             </div>);
         } else {
             displayInfo = <div>Not Found</div>

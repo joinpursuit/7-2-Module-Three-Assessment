@@ -25,7 +25,7 @@ const Movies =()=>{
 
     const selectMovie = async (e) => {
         setHasSelected(true);
-        setSelectedMovieID(e.target.value);
+        setSelectedMovieID(e.target.value); 
         try {
             const res = await axios.get(`https://ghibliapi.herokuapp.com/films/${e.target.value}`);
             setSelectedMovie(res.data)

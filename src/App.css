@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lusitana&family=Poiret+One&display=swap');
+
 .app {
   text-align: center;
+}
+
+h1 {
+  font-family: 'Poiret One', cursive;
+}
+
+body {
+  font-family: 'Lusitana', serif;
 }

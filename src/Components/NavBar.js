@@ -4,10 +4,10 @@ import "./NavBar.css";
 const NavBar = (props) => {
     return (
         <nav className="NavBarContainer">
-            <NavLink to={"/"} onClick={() => props.setColor('tomato')}><img className='nav-logo'src="https://tse3.mm.bing.net/th?id=OIP.dXZc09KuQD2u4h63izlINQHaHa&pid=Api" alt="studio ghibli art"/></NavLink>
-            <NavLink to={"/movies"} onClick={() => props.setColor('lightblue')}>Movies</NavLink>
-            <NavLink to={"/people"} onClick={() => props.setColor('lightyellow')}>People</NavLink>
-            <NavLink to={"/locations"}>Locations</NavLink>
+            <NavLink to={"/"} onClick={() => document.body.style = 'background: tomato'}><img className='nav-logo'src="https://tse3.mm.bing.net/th?id=OIP.dXZc09KuQD2u4h63izlINQHaHa&pid=Api" alt="studio ghibli art"/></NavLink>
+            <NavLink to={"/movies"} onClick={() => document.body.style = 'background: lightblue'}>Movies</NavLink>
+            <NavLink to={"/people"} onClick={() => document.body.style = 'background: lightyellow'}>People</NavLink>
+            <NavLink to={"/locations"} onClick={() =>  document.body.style = 'background: skyblue'}>Locations</NavLink>
         </nav>
     )
 }
