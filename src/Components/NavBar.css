@@ -4,6 +4,9 @@ nav {
     align-items: center;
     background-color: rgb(242, 204, 103);
     margin: auto;
+    font-family: omnes-narrow, sans-serif;
+font-weight: 600;
+font-size: 24px;
 }
 
 nav .active {
