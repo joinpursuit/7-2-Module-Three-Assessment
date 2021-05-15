@@ -1,0 +1,17 @@
+.NavContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgb(138, 248, 233);
+  }
+  
+  .NavContainer a {
+      padding: 10px;
+    color: purple;
+    font-size: 25px;
+  }
+  
+  .NavContainer img {
+    width: 50px;
+    height: 50px;
+  }
