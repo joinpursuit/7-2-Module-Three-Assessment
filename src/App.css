@@ -1,3 +1,67 @@
 .app {
   text-align: center;
 }
+.home-component{
+  background-color: orange;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+.home-component h1{
+  margin-top: 100px;
+  font-size: 85px;
+}
+.nav-component{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: aquamarine;
+  font-size: 30px;
+}
+/* .nav-component {
+  font-decoration: none;
+
+} */
+.nav-component img {
+  width: 50px;
+  height: 50px;
+  
+}
+.locations-component-off{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: paleturquoise;
+  height: 100vh;
+}
+
+.locations-component-on{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: paleturquoise;
+  height: 100%;
+}
+.locations-component button {
+  width: 100px;
+}
+
+.movies-component{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: plum;
+  height: 100vh;
+}
+
+.movies-component select {
+  width: 200px;
+}
+
+.people-component{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(221, 217, 160);
+  height: 100vh;
+}
