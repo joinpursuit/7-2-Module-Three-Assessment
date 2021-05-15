@@ -6,17 +6,17 @@ class People extends React.Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    this.setState({hasSearched: true})
+    this.setState({ hasSearched: true });
     try {
       const { input } = this.state;
       const res = await axios.get(
         `https://ghibliapi.herokuapp.com/people/?name=${input}`
       );
-      this.setState({ people: res.data[0]});
+      this.setState({ people: res.data[0] });
       debugger;
     } catch (error) {
       console.log(error);
-      this.setState({ people: {}});
+      this.setState({ people: {} });
     }
     this.setState({ input: "" });
   };
