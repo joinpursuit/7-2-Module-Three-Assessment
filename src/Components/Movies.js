@@ -40,6 +40,14 @@ const Movies = () => {
 	};
 
 	// print nothing if selected is blank
+
+	// not working --> not reading conditional at all
+
+	// if (hasSelected && selectedMovie.title === "") {
+	// 	<p>show nothing</p>;
+	// 	movieDetails = null;
+	// }
+
 	if (hasSelected) {
 		if (selectedMovie.title) {
 			movieDetails = (

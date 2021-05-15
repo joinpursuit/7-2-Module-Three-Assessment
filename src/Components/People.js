@@ -7,6 +7,7 @@ const People = () => {
 	const [person, setPerson] = useState([]);
 	const [personAge, setPersonAge] = useState("");
 	const [personGender, setPersonGender] = useState("");
+	const [personList, setPersonList] = useState({});
 
 	// take in the event
 	const handleChange = (e) => setUserInput(e.target.value);
@@ -15,7 +16,7 @@ const People = () => {
 		e.preventDefault();
 		try {
 			const res = await axios.get("https://ghibliapi.herokuapp.com/people");
-			// setPersonList(res.data);
+			setPersonList(res.data);
 			setPerson(res.data.filter((person) => person.name === userInput)[0].name);
 			setPersonAge(
 				res.data.filter((person) => person.name === userInput)[0].age
@@ -42,6 +43,7 @@ const People = () => {
 				></input>
 				<button type="submit">Submit</button>
 			</form>
+
 			<div>
 				<p>Name: {person}</p>
 				<p>Age: {personAge}</p>
@@ -57,7 +59,6 @@ export default People;
 
 // const [personData, setPersonData] = useState({});
 // const [personID, setPersonID] = useState("");
-// const [personList, setPersonList] = useState({});
 
 // search for the userInput ... filter()
 // res.data.filter(person=> person.name === "Pazu") ===> object for Pazu
