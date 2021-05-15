@@ -27,7 +27,7 @@ The logo should link to the homepage ("/").
 Your app should also include the following routes:
 
 ### `/`
-Includes a centered header with the text "Welcome to GhibliApp". ![Welcome Page](./assets/welcome.png)
+Includes a centered header with the text "Welcome to GhibliApp". ![Welcome Page](./assets/welcome.png) (Done)
 
 ### `/movies`
 Displays the header "Select a Movie" above a dropdown menu, in the upper ~400px of the page, centered.
