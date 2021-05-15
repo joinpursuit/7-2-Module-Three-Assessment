@@ -22,12 +22,12 @@ export default class People extends Component {
     const { people, input } = this.state;
     for (let i = 0; i < people.length; i++) {
       if (input.toLowerCase() === people[i].name.toLowerCase()) {
-        this.setState({
+        return this.setState({
           name: people[i].name,
           age: people[i].age,
           gender: people[i].gender,
         });
-      } else console.log("Invalid Input");
+      } else return console.log("Invalid Input");
     }
   };
 
@@ -59,6 +59,7 @@ export default class People extends Component {
         <h4>Name: {name}</h4>
         <h4>Age: {age}</h4>
         <h4>Gender: {gender}</h4>
+        <h4></h4>
       </div>
     );
   }

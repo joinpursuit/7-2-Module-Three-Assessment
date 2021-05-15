@@ -33,6 +33,7 @@ export default class Locations extends Component {
         <button onClick={this.showHide}>
           {showLocations ? "Hide Locations" : "Show Locations"}{" "}
         </button>
+        <ul></ul>
         {showLocations && (
           <ul>
             {locations.map((locationObj) => {
