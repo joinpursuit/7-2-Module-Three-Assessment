@@ -1,0 +1,22 @@
+.nav-bar {
+    background-color: rgb(64,173,239);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: black;
+}
+
+.nav-bar a:visited {
+    text-decoration: none;
+    color: black;
+}
+.nav-bar a {
+   
+    color: black;
+}
+
+.nav-bar img {
+    height: 50px;
+  width: 50px;
+}
