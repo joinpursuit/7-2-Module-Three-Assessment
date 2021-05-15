@@ -31,13 +31,13 @@ const People = () => {
     people.forEach((person) => {
       if (input === person.name) {
         setPerson(person);
-      }
+      } 
     });
   };
 
   let result;
   if (hasSearched) {
-      if (input === person.name) {
+      if ( input === person.name) {
         result = (
           <div>
             <h3>Name: {person.name}</h3>
@@ -46,7 +46,11 @@ const People = () => {
           </div>
         );
       } else {
-        result = <div>Not Found</div>
+        result = (
+          <div>
+            <h3>Not Found</h3>
+          </div>
+        )
       }
   } else {
       result = <div></div>
