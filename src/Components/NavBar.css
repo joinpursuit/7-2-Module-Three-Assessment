@@ -1,11 +1,11 @@
 .NavBarContainer {
-   background-color: aquamarine;
-   display: flex;
-   justify-content: space-around;
-   align-items: center;
-   font-size: 27px;
+  background-color: aquamarine;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 27px;
 }
 
 .NavBarContainer img {
-    height: 50px;
+  height: 50px;
 }

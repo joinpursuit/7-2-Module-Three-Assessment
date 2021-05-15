@@ -29,7 +29,6 @@ class Movies extends React.Component {
 
   render() {
     const { movies, moviePickedURL, moviePicked } = this.state;
-    console.log(this.state);
     return (
       <section>
         <h1>Select a Movie</h1>

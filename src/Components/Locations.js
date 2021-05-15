@@ -31,13 +31,12 @@ class Locations extends React.Component {
         <button onClick={this.handleClick}>
           {showLocations ? "Hide Locations" : "Show Locations"}
         </button>
-
         {showLocations ? (
           <ul>
             {locations.map((location) => {
               return (
-                <div>
-                  <li key={location.name}>Name: {location.name}</li>
+                <div key={location.name}>
+                  <li>Name: {location.name}</li>
                   <p>Climate: {location.climate}</p>
                   <p>Terrain: {location.terrain}</p>
                 </div>
@@ -48,7 +47,7 @@ class Locations extends React.Component {
           <ul></ul>
         )}
       </div>
-    ); 
+    );
   }
 }
 
