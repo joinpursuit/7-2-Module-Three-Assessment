@@ -1,0 +1,24 @@
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0%;
+    margin: 0%;
+}
+
+li {
+    list-style-type: none ;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:100%
+}
+button { 
+    width: 10%;
+}
+.locationsContainer {
+    background-color: #D0F4DE;
+}
