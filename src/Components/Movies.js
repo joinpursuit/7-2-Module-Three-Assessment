@@ -37,31 +37,19 @@ const Movies = () => {
 				setSelectedMovie({});
 			}
 		}
+		if (e.target.value === "") {
+			setSelectedMovie({});
+		}
 	};
 
-	// print nothing if selected is blank
-
-	// not working --> not reading conditional at all
-
-	// if (hasSelected && selectedMovie.title === "") {
-	// 	<p>show nothing</p>;
-	// 	movieDetails = null;
-	// }
-
-	if (hasSelected) {
-		if (selectedMovie.title) {
-			movieDetails = (
-				<div>
-					{/* access movie details object */}
-					<p>Title: {selectedMovie.title}</p>
-					<p>Release Date: {selectedMovie.release_date}</p>
-					<p>Description: {selectedMovie.description}</p>
-				</div>
-			);
-		}
-	} else {
-		movieDetails = null;
-	}
+	movieDetails = (
+		<div>
+			{/* access movie details object */}
+			<h1>Title: {selectedMovie.title}</h1>
+			<p>Release Date: {selectedMovie.release_date}</p>
+			<p>Description: {selectedMovie.description}</p>
+		</div>
+	);
 
 	return (
 		<section>
