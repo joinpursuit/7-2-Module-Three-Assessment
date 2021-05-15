@@ -1,0 +1,18 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(242, 204, 103);
+    margin: auto;
+}
+
+nav .active {
+    font-size: bold;
+    color: rebeccapurple;
+    background-color: rosybrown;
+}
+
+.homeIcon {
+    height: 50px;
+    width: 50px;
+}
