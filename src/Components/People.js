@@ -17,6 +17,7 @@ const People = () => {
 		try {
 			const res = await axios.get("https://ghibliapi.herokuapp.com/people");
 			setPersonList(res.data);
+
 			setPerson(res.data.filter((person) => person.name === userInput)[0].name);
 			setPersonAge(
 				res.data.filter((person) => person.name === userInput)[0].age
@@ -29,6 +30,10 @@ const People = () => {
 		}
 		setUserInput("");
 	};
+
+	// if (!personList.name.includes(userInput)) {
+	// 	<p>Not Found</p>
+	// }
 
 	return (
 		<section>

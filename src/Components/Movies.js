@@ -6,12 +6,12 @@ const Movies = () => {
 	const [movies, setMovies] = useState([]);
 	const [selectedMovieURL, setSelectedMovieURL] = useState("");
 	const [selectedMovie, setSelectedMovie] = useState({});
-	const [hasSelected, setHasSelected] = useState(false);
+	// const [hasSelected, setHasSelected] = useState(false);
 	let movieDetails;
 
 	// function to call the API
 	const fetchMovies = async () => {
-		setHasSelected(true);
+		// setHasSelected(true);
 		try {
 			const res = await axios.get("https://ghibliapi.herokuapp.com/films");
 
