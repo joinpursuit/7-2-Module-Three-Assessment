@@ -1,0 +1,17 @@
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row-reverse;
+    background-color: #3b4cca;
+}
+
+nav .active {
+    font-weight: bold;
+    color: red; 
+}
+
+nav a:link{
+    color: #FFde00;
+}
