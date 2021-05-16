@@ -3,6 +3,9 @@ import { Route, Switch } from "react-router";
 import NavBar from "./Components/NavBar"
 import Home from "./Components/Home"
 import Movies from "./Components/Movies"
+import People from "./Components/People"
+import Locations from "./Components/Locations"
+
 
 
 function App() {
@@ -11,7 +14,8 @@ function App() {
       <main>
         <NavBar/>
         <Switch>
-          
+          <Route path={"/locations"} component={Locations}
+ />          <Route path={"/people"} component={People} />
           <Route path={"/movies"} component={Movies} />
           <Route exact path={"/"} component={Home} />
         

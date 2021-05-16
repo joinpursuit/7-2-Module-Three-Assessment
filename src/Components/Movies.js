@@ -2,7 +2,6 @@ import React from "react"
 import axios from "axios"
 
 class Movies extends React.Component{
-    // state= {movies:[], movie:{}}
     state = {movies: [], movie:{}, id:""}
 
     fetchMovies = async() =>{
@@ -49,10 +48,14 @@ class Movies extends React.Component{
                 <option value="" selected ></option>
                  {movieOptions}
                  </select>
+           
+            <div>
 
-               <h1>Title: {movie.title}</h1>
-               <p>Release Date: {movie.release_date}</p>
-               <p>Description: {movie.description}</p>
+                <h1>Title: {movie.title}</h1>
+                <p>Release Date: {movie.release_date}</p>
+                <p>Description: {movie.description}</p>
+
+            </div>
 
             </div>
         )
