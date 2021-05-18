@@ -2,23 +2,33 @@ import axios from "axios";
 import React from "react";
 
 class People extends React.Component {
-  state = { input: "", people: [] };
+  state = { input: "", people: [], person: {} };
 
   fetchPeople = async () => {
     try {
       const res = await axios.get("https://ghibliapi.herokuapp.com/people/");
-      debugger;
+      // debugger;
       this.setState({ people: res.data });
-      debugger;
+      // debugger;
     } catch (error) {
       this.setState({ people: [] });
     }
   };
 
+  componentDidMount() {
+    this.fetchPeople();
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
-    this.fetchPeople();
-    this.setState({ input: "" });
+    const { input, people } = this.state;
+    for (const person of people) {
+      if (input === person.name) {
+        this.setState({ person, input: "" });
+        return 
+      }
+    }
+    this.setState({ person: {}, input: "" })
   };
 
   handleChange = (e) => {
@@ -26,22 +36,7 @@ class People extends React.Component {
   };
 
   render() {
-    const { input, people } = this.state;
-
-    const getPersonsDeets = (people) => {
-      let deets = [];
-      for (let i = 0; i < people.length; i++) {
-        const person = people[i];
-        deets.push(
-          <div>
-            <p>Name: {person.name}</p>
-            <p>Age: {person.age}</p>
-            <p>Gender: {person.gender}</p>
-          </div>
-        );
-      }
-      return deets;
-    };
+    const { input, person } = this.state;
 
     return (
       <section>
@@ -55,16 +50,16 @@ class People extends React.Component {
           ></input>
           <button type="submit">Submit</button>
         </form>
-        {people.name ? (
+        {person.name ? (
           <div>
-            <p>Name: {people.name}</p>
-            <p>Age: {people.age}</p>
-            <p>Gender: {people.gender}</p>
+            <p>Name: {person.name}</p>
+            <p>Age: {person.age}</p>
+            <p>Gender: {person.gender}</p>
           </div>
         ) : (
           <div>Not Found</div>
         )}
-        <ul>{getPersonsDeets(people)}</ul>
+        
       </section>
     );
   }
