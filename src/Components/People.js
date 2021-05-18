@@ -2,13 +2,15 @@ import axios from "axios";
 import React, { Component } from "react";
 
 export default class People extends Component {
-  state = { people: [], input: "", name: "", age: "", gender: "" };
+  state = { people: [], input: "", person: {}, ifSearched: false };
 
   getPeople = async () => {
     try {
       const res = await axios.get("https://ghibliapi.herokuapp.com/people");
       const peopleData = res.data;
       this.setState({ people: peopleData });
+
+      debugger;
     } catch (err) {
       console.log(err);
     }
@@ -18,24 +20,17 @@ export default class People extends Component {
     this.getPeople();
   };
 
-  nameChecker = () => {
-    const { people, input } = this.state;
-    for (let i = 0; i < people.length; i++) {
-      if (input.toLowerCase() === people[i].name.toLowerCase()) {
-        return this.setState({
-          name: people[i].name,
-          age: people[i].age,
-          gender: people[i].gender,
-        });
-      } else return console.log("Invalid Input");
-    }
-  };
-
   handleSubmit = (e) => {
-    const { people } = this.state;
+    const { people, input } = this.state;
     e.preventDefault();
-    people.filter(this.nameChecker);
-    this.setState({ input: "" });
+    this.setState({ ifSearched: true });
+    people.forEach((personDataObj) => {
+      if (input === personDataObj.name) {
+        this.setState({ person: personDataObj });
+      }
+    });
+    debugger;
+    // this.setState({ input: "" });
   };
 
   handleChange = (e) => {
@@ -43,7 +38,29 @@ export default class People extends Component {
   };
 
   render() {
-    const { input, name, age, gender } = this.state;
+    const { input, person, ifSearched } = this.state;
+
+    let text;
+    if ({ ifSearched }) {
+      if (input === person.name) {
+        text = (
+          <div>
+            <h5>{person.name}</h5>
+            <h5>{person.age}</h5>
+            <h5>{person.gender}</h5>
+          </div>
+        );
+      } else {
+        text = (
+          <div>
+            <h5>Not Found</h5>
+          </div>
+        );
+      }
+    } else {
+      text = <div></div>;
+    }
+
     return (
       <div>
         <h1>Search for a Person</h1>
@@ -56,10 +73,7 @@ export default class People extends Component {
           ></input>
           <button type="submit">Submit</button>
         </form>
-        <h4>Name: {name}</h4>
-        <h4>Age: {age}</h4>
-        <h4>Gender: {gender}</h4>
-        <h4></h4>
+        {text}
       </div>
     );
   }
