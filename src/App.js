@@ -10,13 +10,13 @@ import Locations from './Components/Locations'
 function App() {
   return (
     <div className="app">
-        <NavBar></NavBar>
+        <NavBar />
       <main>
       <Switch>
-        <Route  exact path={"/"} component={Home} />
         <Route path={"/movies"} component={Movies} />
         <Route path={"/people"} component={People} />
         <Route path={"/locations"} component={Locations} />
+        <Route  exact path={"/"} component={Home} />
       </Switch>
       </main>
     </div>

@@ -25,7 +25,6 @@ class Movies extends Component {
       const res = await axios.get(
         `https://ghibliapi.herokuapp.com/films/${selectedFilmId}`
       );
-      //   debugger
       this.setState({
         selectedFilmObj: res.data,
         selectedFilm: res.data.title,

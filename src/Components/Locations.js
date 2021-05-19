@@ -38,40 +38,11 @@ class Locations extends Component {
         {showLocations ? (
           <ul className="locationsList">
             {locationsArray.map((location) => {
-              if (location.terrain === "TODO" && location.climate === "TODO") {
-                return (
-                  <li>
-                    {" "}
-                    <p>Name: {location.name}</p> <p>Climate: Unknown </p>{" "}
-                    <p>Terrain: Unknown</p>{" "}
-                  </li>
-                );
-              } else if (location.terrain === "TODO") {
-                return (
-                  <li>
-                    {" "}
-                    <p>Name: {location.name}</p>{" "}
-                    <p>Climate: {location.climate} </p> <p>Terrain: Unknown</p>{" "}
-                  </li>
-                );
-              } else if (location.climate === "TODO") {
-                return (
-                  <li>
-                    {" "}
-                    <p>Name: {location.name}</p> <p>Climate: Unknown </p>{" "}
-                    <p>Terrain: {location.terrain}</p>{" "}
-                  </li>
-                );
-              } else {
-                return (
-                  <li>
-                    {" "}
-                    <p>Name: {location.name}</p>{" "}
-                    <p>Climate: {location.climate}</p>{" "}
-                    <p>Terrain: {location.terrain}</p>{" "}
-                  </li>
-                );
-              }
+              return <li>
+                <p>Name: {location.name}</p>
+                <p>Climate: {location.climate === "TODO" ? "Unknown" : location.climate}</p>
+                <p>Terrain: {location.terrain === "TODO" ? "Unknown" : location.terrain}</p>
+              </li>
             })}
           </ul>
         ) : (

@@ -8,18 +8,22 @@ class People extends Component {
     input: "",
     personSearchArray: [],
     hasSearched: false,
+    searchedPerson: []
   };
 
   handleChange = (e) => {
-    this.setState({ input: e.target.value });
-    this.setState({ hasSearched: true });
+    const input = e.target.value;
+    this.setState({ input: input }); 
+    // **insert regX for capitol or lowercase letters
   };
-
+  
   handleSubmit = (e) => {
     e.preventDefault();
-    this.personSearch();
+    this.setState({ hasSearched: true });
+    this.personMatch();
   };
 
+  
   personSearch = async () => {
     try {
       const res = await axios.get("https://ghibliapi.herokuapp.com/people");
@@ -28,10 +32,22 @@ class People extends Component {
       this.setState({ personSearchArray: [] });
     }
   };
-
+  
+  
+  componentDidMount() {
+    this.personSearch();  
+  }
+  
+  
+  personMatch = () => {
+    const searchedPerson = this.state.personSearchArray.filter((person) => {
+      return person.name === this.state.input
+    })
+    this.setState({searchedPerson: searchedPerson, input: ""})
+  }
 
   render() {
-    const { input, personSearchArray } = this.state;
+    const { input, searchedPerson, hasSearched } = this.state;
 
     return (
       <div>
@@ -45,24 +61,13 @@ class People extends Component {
           ></input>
           <button type="submit" className="submitButton">Submit</button>
         </form>
-        {}
+        {hasSearched ? 
         <section className="personInfo">
-          {personSearchArray.map((person) => {
-            let personName = "";
-            personName = person.name;
-            if (personName === input) {
-              return (
-                <div value={person.name}>
-                  <p>{person.name}</p> <p>{person.age}</p>{" "}
-                  <p>{person.gender}</p>
-                </div>
-              );
-            } else {
-              return null;
-            }
-           
-          })}
-        </section>
+          {searchedPerson.length ? <div>
+            <p>{searchedPerson[0].name}</p> <p>{searchedPerson[0].age}</p> <p>{searchedPerson[0].gender}</p>
+          </div> : "Not Found"}
+          </section>
+            : null}
       </div>
     );
   }
