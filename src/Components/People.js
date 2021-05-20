@@ -2,14 +2,12 @@ import axios from "axios";
 import React from "react";
 
 class People extends React.Component {
-  state = { input: "", people: [], person: {} };
+  state = { input: "", people: [], person: {}, searched: false };
 
   fetchPeople = async () => {
     try {
       const res = await axios.get("https://ghibliapi.herokuapp.com/people/");
-      // debugger;
       this.setState({ people: res.data });
-      // debugger;
     } catch (error) {
       this.setState({ people: [] });
     }
@@ -21,6 +19,7 @@ class People extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.setState({ searched: true })
     const { input, people } = this.state;
     for (const person of people) {
       if (input === person.name) {
@@ -36,7 +35,7 @@ class People extends React.Component {
   };
 
   render() {
-    const { input, person } = this.state;
+    const { input, person, searched } = this.state;
 
     return (
       <section>
@@ -57,7 +56,7 @@ class People extends React.Component {
             <p>Gender: {person.gender}</p>
           </div>
         ) : (
-          <div>Not Found</div>
+         searched && <div>Not Found</div>
         )}
         
       </section>
