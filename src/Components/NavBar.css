@@ -1,0 +1,21 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(242, 204, 103);
+    margin: auto;
+    font-family: omnes-narrow, sans-serif;
+font-weight: 600;
+font-size: 24px;
+}
+
+nav .active {
+    font-size: bold;
+    color: rebeccapurple;
+    background-color: rosybrown;
+}
+
+.homeIcon {
+    height: 50px;
+    width: 50px;
+}
