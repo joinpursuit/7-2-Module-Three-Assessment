@@ -55,10 +55,3 @@ class Locations extends Component {
 
 export default Locations;
 
-// ### `/locations`
-// Displays a header, centered on the page, with the text "List of Locations".
-// Display a button that toggles back and forth between "Show Locations" and "Hide Locations". When show locations has been selected, it
-// displays an unordered list of all of the locations stored in the Ghibli API, centered on the page.
-// Each location should include the name, climate, and terrain of that location. If the climate or the terrain are "TODO" in the API response, you should replace "TODO" with "Unknown".
-// ![locations hidden](./assets/locations1.png)
-// ![locations showing](./assets/locations2.png)

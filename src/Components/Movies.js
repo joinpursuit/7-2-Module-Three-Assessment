@@ -35,15 +35,15 @@ class Movies extends Component {
   };
 
   render() {
-    const { filmsArray, selectedFilmObj } = this.state;
+    const { filmsArray, selectedFilmObj, selectedFilmId } = this.state;
     return (
       <div>
         <h1>Select a Movie</h1>
-        <select onChange={this.movieSelected}>
+        <select onChange={this.movieSelected} value={selectedFilmId}>
           <option></option>
           {filmsArray.map((film) => {
             return (
-              <option value={film.id} key={film.title} className="movieOptions">
+              <option value={film.id} key={film.id} className="movieOptions">
                 {film.title}
               </option>
             );
