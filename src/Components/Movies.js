@@ -6,11 +6,9 @@ const Movies = () => {
   const [title, setTitle] = useState("");
   const [release_date, setRelease_date] = useState("");
   const [description, setDescription] = useState("");
-  //   const [ selectedMovie, setSelectedMovie ] = useState("");
 
   const handleChange = async (e) => {
     const id = e.target.value;
-    //   setSelectedMovie(id);
     try {
       const res = await axios.get(
         `https://ghibliapi.herokuapp.com/films/${id}`

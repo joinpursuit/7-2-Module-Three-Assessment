@@ -32,8 +32,6 @@ const Locations = () => {
           return (
             <li key={location.id}>
               Name: {location.name} <br />
-              {/* if climate || terrain === TODO */}
-              {/* replace with Unknown */}
               Climate: {location.climate}
               <br />
               Terrain: {location.terrain}
